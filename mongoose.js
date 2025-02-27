@@ -164,7 +164,19 @@ async function crudMongoose() {
         console.error('Error dropping collection:', error.message);
     }
     
-    // Step 12: Close database connection
+    // Step 12: Delete multiple documents based on a condition
+    console.log('-'.repeat(40));
+    console.log('Deleting Multiple Documents...');
+    try {
+        await EmployeeModel.deleteMany({ age: { $lt: 18 } }); // Delete all employees younger than 18
+        console.log('Deleted multiple documents.');
+    } catch (error) {
+        console.error('Error deleting multiple documents:', error.message);
+    }
+    await readAllCollections(EmployeeModel);
+    await askQuestion('Press Enter to continue...');
+
+    // Step 13: Close database connection
     mongoose.connection.close();
     rl.close();
     console.log('Database connection closed.');
