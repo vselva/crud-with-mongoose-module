@@ -31,7 +31,7 @@ mongod --dbpath /path/to/data/db
 
 ### 4️⃣ Run the Script
 ```sh
-node index.js
+node mongoose.js
 ```
 
 ## 📜 Features & Operations
