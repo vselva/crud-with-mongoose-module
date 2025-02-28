@@ -154,17 +154,7 @@ async function crudMongoose() {
     await readAllCollections(EmployeeModel);
     await askQuestion('Press Enter to continue...');
     
-    // Step 11: Drop the entire collection (removes all documents)
-    console.log('-'.repeat(40));
-    console.log('Dropping the Collection...');
-    try {
-        await EmployeeModel.collection.drop();
-        console.log('Collection dropped successfully.');
-    } catch (error) {
-        console.error('Error dropping collection:', error.message);
-    }
-    
-    // Step 12: Delete multiple documents based on a condition
+    // Step 11: Delete multiple documents based on a condition
     console.log('-'.repeat(40));
     console.log('Deleting Multiple Documents...');
     try {
@@ -175,6 +165,16 @@ async function crudMongoose() {
     }
     await readAllCollections(EmployeeModel);
     await askQuestion('Press Enter to continue...');
+    
+    // Step 12: Drop the entire collection (removes all documents)
+    console.log('-'.repeat(40));
+    console.log('Dropping the Collection...');
+    try {
+        await EmployeeModel.collection.drop();
+        console.log('Collection dropped successfully.');
+    } catch (error) {
+        console.error('Error dropping collection:', error.message);
+    }
 
     // Step 13: Close database connection
     mongoose.connection.close();
